@@ -15,13 +15,47 @@ var allowCrossDomain = function(req, res, next) {
 app.use(bodyParser());
 app.use(allowCrossDomain);
 
-var databaseUrl = "myDatabase";
+var databaseUrl = "test";
 var collections = ["users"]
 var db = require("mongojs").connect(databaseUrl, collections);
 
+// List users
 app.get('/', function(request, response) {
-   response.send("Hello World");
+	//response.send("Hello World");
+	db.users.find({}, function(e, data){
+		response.send(data);
+	});
 });
+
+// Add user
+app.post('/', function(request, response){
+	db.users.insert(request.body, function(e, data){
+		console.log('ok');
+		console.log(e);
+		console.log(data);
+		response.send(data);
+	});
+});
+
+
+// Delete user
+app.delete('/', function(request, response){
+	db.users.remove(request, function(e, data){
+		response.send(data);
+	});
+});
+
+app.put('/', function(request, response){
+	db.users.findAndModify(request, function(e, data){
+		response.send(data);
+	});
+});
+
+
+// db.getCollectionNames(function(data){
+// 	console.log(data);
+// });
+
 
 
 app.listen(8080);
