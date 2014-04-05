@@ -17,11 +17,12 @@ app.use(allowCrossDomain);
 
 var databaseUrl = "test";
 var collections = ["users"]
-var db = require("mongojs").connect(databaseUrl, collections);
+var mongojs = require("mongojs");
+var db = mongojs.connect(databaseUrl, collections);
+var ObjectId = mongojs.ObjectId;
 
 // List users
 app.get('/', function(request, response) {
-	//response.send("Hello World");
 	db.users.find({}, function(e, data){
 		response.send(data);
 	});
@@ -30,9 +31,6 @@ app.get('/', function(request, response) {
 // Add user
 app.post('/', function(request, response){
 	db.users.insert(request.body, function(e, data){
-		console.log('ok');
-		console.log(e);
-		console.log(data);
 		response.send(data);
 	});
 });
@@ -40,22 +38,32 @@ app.post('/', function(request, response){
 
 // Delete user
 app.delete('/', function(request, response){
-	db.users.remove(request, function(e, data){
+	db.users.remove({'_id': ObjectId(request.body._id)}, function(e, data){
 		response.send(data);
 	});
 });
 
 app.put('/', function(request, response){
-	db.users.findAndModify(request, function(e, data){
+	console.log(request.body);
+	id = request.body._id;
+	delete request.body['_id'];
+	db.users.findAndModify({
+		query: {_id: ObjectId(id)},
+		update: request.body,
+		new: true
+	}, function(e, data){
+		console.log(data);
 		response.send(data);
 	});
 });
 
-
-// db.getCollectionNames(function(data){
-// 	console.log(data);
-// });
-
-
+app.get('/:id', function(request, response){
+	console.log('ici');
+	console.log(request.params.id)
+	db.users.find({'_id': ObjectId(request.params.id)}, function(e, data){
+		console.log(data);
+		response.send(data);
+	})
+});
 
 app.listen(8080);

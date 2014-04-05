@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="index.css" rel="stylesheet" type="text/css"></link>
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+</head>
+<body>
+    <body>
+
+        <div class="container">
+
+            <button class="btn btn-primary" id="listing">Listing utilisateur</button>
+            <button class="btn btn-success" id="adding">Ajouter un utilisateur</button>
+            
+            <div id="content">
+            </div>
+
+            <div id="form">
+
+
+
+                <ul class="nav nav-tabs">
+                  <li class="active"><a href="#Simple" data-toggle="tab">Simple</a></li>
+                  <li><a href="#Confirmed" data-toggle="tab">Confirmed</a></li>
+                  <li><a href="#Advanced" data-toggle="tab">Advanced</a></li>
+              </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                  <div class="tab-pane active" id="Simple">
+                      <div id="form-first">
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="username-first">Username</label>
+                            <input type="text" class="form-control" id="username-first" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-first">Email</label>
+                            <input type="email" class="form-control" id="email-first" placeholder="Email">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-first">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane" id="Confirmed">
+                <div id="form-second">
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="username-second">Username</label>
+                            <input type="text" class="form-control" id="username-second" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-second">Email</label>
+                            <input type="email" class="form-control" id="email-second" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone-second">Telephone</label>
+                            <input type="tlephone" class="form-control" id="telephone-second" placeholder="Telephone">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-second">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane" id="Advanced">
+                
+                    <div id="form-third">
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="username-third">Username</label>
+                            <input type="text" class="form-control" id="username-third" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-third">Email</label>
+                            <input type="email" class="form-control" id="email-third" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone-third">Telephone</label>
+                            <input type="telephone" class="form-control" id="telephone-third" placeholder="Telephone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-third">Address</label>
+                            <input type="address" class="form-control" id="address-third" placeholder="Address">
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit-third">Submit</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div id="edit-form">
+        
+        <div id="form-edit">
+                        <form role="form">
+                          <div class="form-group">
+                            <label for="username-edit">Username</label>
+                            <input type="text" class="form-control" id="username-edit" placeholder="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-edit">Email</label>
+                            <input type="email" class="form-control" id="email-edit" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="telephone-edit">Telephone</label>
+                            <input type="telephone" class="form-control" id="telephone-edit" placeholder="Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address-edit">Address</label>
+                            <input type="address" class="form-control" id="address-edit" placeholder="Address">
+                        </div>
+                        <input type="hidden" id="id-edit">
+                        <button type="submit" class="btn btn-primary" id="submit-edit">Submit</button>
+                    </form>
+                </div>
+
+
+    </div>
+
+
+</div><!-- /.container -->
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="index.js"></script>
+
+</body>
+</html>
